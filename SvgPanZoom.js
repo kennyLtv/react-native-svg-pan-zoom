@@ -220,6 +220,7 @@ export default class SvgPanZoom extends Component {
             },
             onPanResponderTerminationRequest: (evt, gestureState) => true,
             onPanResponderRelease: (evt, gestureState) => {
+                this.props.onTranslate({x: this.state.viewTransform.translateX, y: this.state.viewTransform.translateY})
                 this.setState({
                     isScaling: false,
                     isMoving: false,
@@ -267,4 +268,5 @@ SvgPanZoom.defaultProps = {
     canvasStyle: {},
     viewStyle: {},
     onZoom: (zoom) => { },
+    onTranslate: (transform) => { }
 };
